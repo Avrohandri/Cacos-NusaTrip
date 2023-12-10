@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UII EXPO | Cacos.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="zreservation.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+
+    <section class="banner">
+        <h2>BOOK YOUR TABLE NOW</h2>
+        <div class="card-container">
+            <div class="card-img">
+            </div>
+
+            <div class="card-content">
+                <h3>Pemesanan</h3>
+                <form id="formAdd">
+                    <div class="form-row">
+                        <input type="date" name="tanggal_pemesanan" id="tanggal_pemesanan" placeholder="Select Day" required>
+                        <select name="destinasi" id="destinasi" required>
+                            <option value="destination-select">Destinasi Wisata</option>
+                            <option value="ambon">Ambon</option>
+                            <option value="aceh">Banda Aceh</option>
+                            <option value="lampung">Bandar Lampung</option>
+                            <option value="bandung">Bandung</option>
+                            <option value="denpasar">Denpasar</option>
+                            <option value="jakarta">Jakarta</option>
+                            <option value="makassar">Makassar</option>
+                            <option value="medan">Medan</option>
+                            <option value="padang">Padang</option>
+                            <option value="palembang">Palembang</option>
+                            <option value="bangka">Pangkal Pinang</option>
+                            <option value="samarinda">Samarinda</option>
+                            <option value="semarang">Semarang</option>
+                            <option value="sorong">Sorong</option>
+                            <option value="surabaya">Surabaya</option>
+                            <option value="yogyakarta">Yogyakarta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" placeholder="Nama Lengkap" id="nama" name="nama" required>
+                        <input type="text" placeholder="No Telepon" id="no_telepon" name="no_telepon" required>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="button" class="submit" onclick="addData()">Book Table</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const tokenValue = sessionStorage.getItem('authData');
+
+        if (!tokenValue) {
+            alert("Silahkan login terlebih dahulu")
+            window.location.href = 'login.html';
+        }
+        const scrollRevealOption = {
+            origin: 'bottom',
+            distance: '20px',
+            duration: 1000,
+            delay: 0,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            mobile: true,
+        };
+
+        ScrollReveal().reveal(".banner h2", scrollRevealOption);
+
+        ScrollReveal().reveal(".card-container", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+
+        ScrollReveal().reveal(".form-row", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+
+        ScrollReveal().reveal(".button", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+
+        async function addData() {
+            const form = document.getElementById('formAdd');
+            const dataToAdd = new FormData(form);
+
+            if (dataToAdd.has('nama') && dataToAdd.has('destinasi') && dataToAdd.has('no_telepon') && dataToAdd.has('tanggal_pemesanan')) {
+                try {
+                    response = await fetch("http://localhost/cacos-backend/pemesanan.php", {
+                        method: "POST",
+                        body: dataToAdd,
+                    })
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const responseData = await response.json();
+                    if (responseData.status == "success") {
+                        alert("Berhasil Menyimpan Data")
+                        window.location.href = "index.html";
+                    } else {
+                        alert("Gagal Menyimpan Data");
+                    }
+                } catch (error) {
+                    console.error("There was a problem with the fetch operation:", error);
+                }
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

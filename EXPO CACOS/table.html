@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>UII EXPO | Cacos.</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="ztable.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <main class="table">
+        <button class="back-btn" onclick="redirectToIndex()">
+            <i class="ri-arrow-left-line"></i>
+        </button>
+        <section class="table__header reveal-element">
+            <h1>Pemesanan Travel</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Pencarian..." id="filterInput" />
+                <img src="assets/search.png" alt="" />
+            </div>
+        </section>
+        <section class="table__body reveal-element">
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>Tanggal Pemesanan</th>
+                        <th>Destinasi</th>
+                        <th>Nama Lengkap</th>
+                        <th>No Telepon</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="bodytable"></tbody>
+            </table>
+            <button class="add-button" onclick="addRow()">
+                Tambah Pemesanan (+)
+            </button>
+        </section>
+    </main>
+    <script>
+        const tokenValue = sessionStorage.getItem('authData');
+
+        if (!tokenValue) {
+        alert("Silahkan login terlebih dahulu")
+        window.location.href = 'login.html';
+        }
+        const url = "http://localhost/cacos-backend/"
+        const scrollRevealOption = {
+            origin: "bottom",
+            distance: "20px",
+            duration: 1000,
+            delay: 0,
+            opacity: 0,
+            scale: 0.8,
+            easing: "cubic-bezier(0.5, 0, 0, 1)",
+        };
+        ScrollReveal().reveal(".reveal-element", scrollRevealOption);
+        function redirectToIndex() {
+            window.location.href = "index.html";
+        }
+        $(document).ready(function () {
+            $('#filterInput').on('input', function () {
+                fetchDataAndDisplay($(this).val());
+            });
+
+            fetchDataAndDisplay('');
+        });
+
+        async function fetchDataAndDisplay(filterTerm) {
+            try {
+                const response = await fetch(`${url}pemesanan.php`);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+                const tableBody = document.getElementById("bodytable");
+                tableBody.innerHTML = "";
+
+                // Loop through the data and create a row for each item
+                data.data.forEach((item) => {
+                    const tanggal = moment(item.tanggal_pemesanan);
+                    
+                    // Check if the item matches the filter term
+                    if (item.destinasi.toLowerCase().includes(filterTerm.toLowerCase()) ||
+                        item.nama.toLowerCase().includes(filterTerm.toLowerCase()) ||
+                        item.no_telepon.toLowerCase().includes(filterTerm.toLowerCase())) {
+                        
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${tanggal.format('D MMM, YYYY')}</td>
+                            <td>${item.destinasi}</td>
+                            <td>${item.nama}</td>
+                            <td>${item.no_telepon}</td>
+                            <td>
+                                <button onclick="editRow(this, ${item.id_pemesanan})">Edit</button>
+                                <button onclick="deleteRow(${item.id_pemesanan})">Hapus</button>
+                            </td>
+                        `;
+                        tableBody.appendChild(row);
+                    }
+                });
+            } catch (error) {
+                console.error("There was a problem with the fetch operation:", error);
+            }
+        }
+        async function deleteRow(id) {
+            try {
+                response = await fetch(`${url}pemesanan.php?id=${id}`, {
+                    method: "DELETE",
+                })
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const responseData = await response.json();
+                if (responseData.status == "success") {
+                    alert("Berhasil Menghapus Data")
+                }
+            } catch (error) {
+                console.error("There was a problem with the fetch operation:", error);
+            }
+        }
+        async function addRow() {
+            const dataToAdd = new FormData();
+            const field = [
+                "Nama",
+                "Destinasi",
+                "No Telepon",
+                "Tanggal Pemesanan"
+            ]
+
+            // Membuat prompt untuk setiap kolom
+            for (let i = 0; i < 4; i++) {
+                const newValue = prompt(
+                    `Masukkan nilai baru untuk kolom ${field[i]}:`,
+                    ""
+                );
+                if (newValue !== null) {
+                    dataToAdd.append(field[i].toLowerCase(), newValue);
+                } else {
+                    // Jika pengguna membatalkan, keluar dari loop
+                    break;
+                }
+            }
+
+            try {
+                response = await fetch(`${url}pemesanan.php`, {
+                    method: "POST",
+                    body: dataToAdd,
+                })
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const responseData = await response.json();
+                if (responseData.status == "success") {
+                    alert("Berhasil Menyimpan Data")
+                }
+            } catch (error) {
+                console.error("There was a problem with the fetch operation:", error);
+            }
+
+        }
+        async function editRow(button, id) {
+            console.log(id);
+            const dataToUpdate = {};
+            const field = ["Tanggal_Pemesanan", "Destinasi", "Nama", "No_Telepon"];
+            const row = button.closest("tr");
+            const cells = row.getElementsByTagName("td");
+
+            // Membuat prompt untuk setiap kolom
+            for (let i = 0; i < cells.length - 1; i++) {
+                let newValue;
+                if (i == 0) {
+                    const tanggal = moment(cells[i].innerText, "D MMM, YYYY");
+                    newValue = prompt(
+                        `Masukkan nilai baru untuk kolom ${field[i]}:`,
+                        tanggal.format("YYYY-MM-DD")
+                    );
+                } else {
+                    newValue = prompt(
+                        `Masukkan nilai baru untuk kolom ${field[i]}:`,
+                        cells[i].innerText
+                    );
+                }
+
+                if (newValue !== null) {
+                    dataToUpdate[field[i].toLowerCase()] = newValue;
+                } else {
+                    // Jika pengguna membatalkan, keluar dari loop
+                    break;
+                }
+            }
+
+            if (Object.keys(dataToUpdate).length != 0) {
+                try {
+                    const response = await fetch(`${url}pemesanan.php?id=${id}`, {
+                        method: "PUT",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(dataToUpdate),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const responseData = await response.json();
+                    if (responseData.status == "success") {
+                        alert("Berhasil Menyimpan Data");
+                    }else{
+                        alert("Gagal Menyimpan Data");
+                    }
+                } catch (error) {
+                    console.error("There was a problem with the fetch operation:", error);
+                }
+            }
+        }
+
+        function filterTable() { }
+    </script>
+</body>
+
+</html>

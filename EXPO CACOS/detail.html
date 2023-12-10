@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Yogyakarta</title>
+  <link rel="stylesheet" href="zdiscover.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+  <header id="header">
+    <nav>
+      <div class="nav__bar">
+        <button class="back-btn" onclick="redirectBack()">
+          <i class="ri-arrow-left-line"></i>
+        </button>
+        <a href="reservation.html">
+          Reservation
+        </a>
+      </div>
+    </nav>
+    <div class="section__container header__container">
+      <h1 id="title"></h1>
+      <p id="subtitle">
+        
+      </p>
+    </div>
+  </header>
+  <section class="discover" id="discover">
+    <div class="section__container discover__container">
+      <div class="discover__grid" id="idGrid">
+        
+      </div>
+    </div>
+  </section>
+</body>
+
+<script>
+  
+  const tokenValue = sessionStorage.getItem('authData');
+  if (!tokenValue) {
+    alert("Silahkan login terlebih dahulu")
+    window.location.href = 'login.html';
+  }
+  ScrollReveal().reveal(".header__container", {
+      duration: 1000,
+      interval: 400,
+    });
+  function redirectBack(){
+    window.location.href = 'index.html'
+  }
+
+  const url = 'http://localhost/cacos-backend/'
+
+  document.addEventListener('DOMContentLoaded', fetchDataById);
+  document.addEventListener('DOMContentLoaded', fetchDataByIdDestinasi);
+
+  async function fetchDataById() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const response = await fetch(`http://localhost/cacos-backend/destinasi.php?id=${id}`);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const title = document.getElementById('title')
+        const subtitle = document.getElementById('subtitle')
+        const header= document.getElementById('header')
+        
+        const data = await response.json();
+        const imageurl = `${url}images/background/${data.data.background_image}`
+        title.innerHTML = `Discover ${data.data.nama}`
+        subtitle.innerHTML = `${data.data.subtitle}`
+        header.style.backgroundImage = `linear-gradient(to top, #0a0d14,#0a0d149a, transparent),url("${imageurl}")`
+
+
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }}
+
+  async function fetchDataByIdDestinasi() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const response = await fetch(`${url}discover.php?id_destinasi=${id}`);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        
+        const data = await response.json();
+        displayData(data.data);
+        
+        ScrollReveal().reveal(".discover__card__content", {
+          interval: 500,
+          delay: 200,
+        });
+
+
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+
+    function displayData(data) {
+    const grid = document.getElementById('idGrid');
+
+    // Clear existing cards
+    grid.innerHTML = '';
+
+    // Loop through the data and create a card for each item
+    data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'discover__card';
+        card.innerHTML = `
+            <div class="discover__image">
+                <img src="${url+"images/discover/"+item.image}" alt="${item.nama}" />
+            </div>
+            <div class="discover__card__content">
+                <h4>${item.nama}</h4>
+                <p>${item.deskripsi}</p>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+}
+</script>
+</html>
+
+

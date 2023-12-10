@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="zmain.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <title>UII EXPO | Cacos.</title>
+</head>
+
+<body>
+  <header id="home">
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="login.html">Cacos.</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="#about">Tentang Kami</a></li>
+          <li class="link"><a href="#discover">Pencarian</a></li>
+          <li class="link"><a href="#blog">Blog</a></li>
+          <li class="link"><a href="#journals">Jurnal</a></li>
+          <li class="link"><a href="#gallery">Galeri</a></li>
+          <li class="link"><a href="#contact">Kontak</a></li>
+          <li class="link"><a href="table.html">Riwayat</a></li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="section__container header__container">
+      <h1>Cara baru merencanakan petualangan</h1>
+      <h4>Nikmati dunia penuh warna</h4>
+      <button class="btn" onclick="redirectToReservationForm()">
+        Jelajahi <i class="ri-arrow-right-line"></i>
+      </button>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="section__container about__container">
+      <div class="about__content">
+        <h2 class="section__header">Tentang kami</h2>
+        <p class="section__subheader">
+          Misi kami adalah menyediakan pengalaman perjalanan yang tak terlupakan.
+          Dengan rencana perjalanan teliti, aktivitas menarik, dan eksplorasi keindahan alam, kami ingin menjadi
+          penggerak semangat penemuan setiap petualang.
+          Bersama tim berpengalaman kami, kami berkomitmen untuk menghadirkan ekspedisi yang memenuhi kegembiraan
+        </p>
+        <div class="about__flex">
+          <div class="about__card">
+            <h4>192</h4>
+            <p>Trip Terlaksana</p>
+          </div>
+          <div class="about__card">
+            <h4>102</h4>
+            <p>Pemandu Wisata</p>
+          </div>
+          <div class="about__card">
+            <h4>98</h4>
+            <p>Destinasi</p>
+          </div>
+        </div>
+      </div>
+      <div class="about__image">
+        <img src="assets/about.jpg" alt="about" />
+      </div>
+    </div>
+  </section>
+
+  <section class="discover" id="discover">
+    <div class="section__container discover__container">
+      <h2 class="section__header">Temukan eksplorasi paling menarik</h2>
+      <p class="section__subheader">
+        Jelajahi dunia bersama kami, bersama keluarga dan Anda.
+      </p>
+      <div class="discover__grid" id="idGrid">
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="blogs" id="blog">
+    <div class="blogs__container">
+      <h2 class="section__header">Blog terbaru</h2>
+      <p class="section__subheader">Kami di sini untuk memudahkan perjalanan Anda!</p>
+      <div class="blogs__grid">
+        <div class="blogs__card">
+          <img src="assets/blog-1.jpg" alt="blog" />
+          <div class="blogs__content">
+            5 Tips Terbaik untuk Perjalanan Aman, hindari Kesalahan Umum Ini!
+          </div>
+        </div>
+        <div class="blogs__card">
+          <img src="assets/blog-2.jpg" alt="blog" />
+          <div class="blogs__content">
+            Pelajari Bahasa Sambil Berpetualang, tips Terbaik dari Destinasi Berbahasa!
+          </div>
+        </div>
+        <div class="blogs__card">
+          <img src="assets/blog-3.jpg" alt="blog" />
+          <div class="blogs__content">
+            12 tips agar kamu tidak kebingungan saat di Yogyakarta!
+          </div>
+        </div>
+        <div class="blogs__card">
+          <img src="assets/blog-4.jpg" alt="blog" />
+          <div class="blogs__content">
+            Mencicipi Aroma Indonesia, Kuliner Khas dari Setiap kota Indonesia
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journals" id="journals">
+    <div class="section__container journals__container">
+      <h2 class="section__header">Jurnal Petualangan</h2>
+      <p class="section__subheader">
+        Jurnal adalah tempat mencatat hal-hal baru yang Anda temukan selama ini,
+        menjelajahi berbagai tempat yang Anda kunjungi.
+      </p>
+      <div class="journals__grid">
+        <div class="journals__card">
+          <img src="assets/journals-1.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-1.jpg" alt="author" />
+              <p>Jason Susanto</p>
+            </div>
+            <h4>Cara menggunakan plastik dengan hemat saat bepergian.</h4>
+            <div class="journals__footer">
+              <p>11 Juni 2023</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="journals__card">
+          <img src="assets/journals-2.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-2.jpg" alt="author" />
+              <p>Akbar Yauma</p>
+            </div>
+            <h4>Cara terbaik untuk menikmati Bali.</h4>
+            <div class="journals__footer">
+              <p>22 Jun 2023</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="journals__card">
+          <img src="assets/journals-3.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-3.jpg" alt="author" />
+              <p>Rara Farah</p>
+            </div>
+            <h4>tips dan trik untuk perjalanan selanjutnya.</h4>
+            <div class="journals__footer">
+              <p>05 Desember 2022</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="journals__card">
+          <img src="assets/journals-4.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-4.jpg" alt="author" />
+              <p>Aldi Taher</p>
+            </div>
+            <h4>Tips pemesanan hotel untuk pemula.</h4>
+            <div class="journals__footer">
+              <p>15 Feb 2023</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="journals__card">
+          <img src="assets/journals-5.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-5.jpg" alt="author" />
+              <p>Bambang Sukini</p>
+            </div>
+            <h4>Memilih makanan terbaik saat perjalanan.</h4>
+            <div class="journals__footer">
+              <p>11 Agst 2023</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="journals__card">
+          <img src="assets/journals-6.jpg" alt="journal" />
+          <div class="journals__content">
+            <div class="journals__author">
+              <img src="assets/author-6.jpg" alt="author" />
+              <p>Dewi Berlina</p>
+            </div>
+            <h4>Apa yang harus dilakukan ketika keluar negeri.</h4>
+            <div class="journals__footer">
+              <p>23 Apr 2023</p>
+              <span>
+                <a href="#"><i class="ri-share-fill"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="journals__btn">
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="section__container hero__container">
+      <p>Cacos.</p>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="gallery__container">
+      <h2 class="section__header">Galeri Foto</h2>
+      <p class="section__subheader">
+        Jelajahi tempat-tempat terindah di Indonesia.
+      </p>
+      <div class="gallery__grid">
+        <div class="gallery__card">
+          <img src="assets/gallery-1.jpg" alt="gallery" />
+          <div class="gallery__content">
+            <h4>Pulau Lutong</h4>
+            <p>Bangka Belitung</p>
+          </div>
+        </div>
+        <div class="gallery__card">
+          <img src="assets/gallery-2.jpg" alt="gallery" />
+          <div class="gallery__content">
+            <h4>Padar</h4>
+            <p>Manggarai Barat</p>
+          </div>
+        </div>
+        <div class="gallery__card">
+          <img src="assets/gallery-3.jpg" alt="gallery" />
+          <div class="gallery__content">
+            <h4>Denpasar</h4>
+            <p>Bali</p>
+          </div>
+        </div>
+        <div class="gallery__card">
+          <img src="assets/gallery-4.jpg" alt="gallery" />
+          <div class="gallery__content">
+            <h4>Gunung Prau</h4>
+            <p>Wonosobo</p>
+          </div>
+        </div>
+        <div class="gallery__card">
+          <img src="assets/gallery-5.jpg" alt="gallery" />
+          <div class="gallery__content">
+            <h4>Masjid Asmaulhusna</h4>
+            <p>Makassar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section__container contact__container">
+      <div class="contact__col">
+        <h4>Kontak kami jika tertarik lebih lanjut</h4>
+        <p>24 jam pelayanan setiap hari</p>
+      </div>
+      <div class="contact__col">
+        <div class="contact__card">
+          <span><i class="ri-phone-line"></i></span>
+          <h4>Telepon</h4>
+          <h5>+62 81215451308</h5>
+        </div>
+      </div>
+      <div class="contact__col">
+        <div class="contact__card">
+          <span><i class="ri-mail-line"></i></span>
+          <h4>Email</h4>
+          <h5>cacos@gmail.com</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="section__container footer__container">
+      <h4>Cacos.</h4>
+      <div class="footer__socials">
+        <span>
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+        </span>
+        <span>
+          <a href="#"><i class="ri-instagram-fill"></i></a>
+        </span>
+        <span>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </span>
+        <span>
+          <a href="#"><i class="ri-linkedin-fill"></i></a>
+        </span>
+      </div>
+      <p>
+        "Petualangan adalah kunci untuk membuka pintu ke pengetahuan baru, pengalaman tak terlupakan, dan pertemanan
+        yang mendalam."
+      </p>
+      <ul class="footer__nav">
+        <li class="footer__link"><a href="#home">Home</a></li>
+        <li class="footer__link"><a href="#about">Tentang Kami</a></li>
+        <li class="footer__link"><a href="#discover">Pencarian</a></li>
+        <li class="footer__link"><a href="#blog">Blog</a></li>
+        <li class="footer__link"><a href="#journals">Jurnal</a></li>
+        <li class="footer__link"><a href="#gallery">Galeri</a></li>
+        <li class="footer__link"><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+    <div class="footer__bar">
+      Copyright © 2023 UII EXPO. All rights reserved.
+    </div>
+  </section>
+  <script>
+    function redirectToReservationForm() {
+      window.location.href = 'reservation.html';
+    }
+    function redirectToLogin() {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    }
+    function redirectTo(id) {
+      const urlRedirect = 'detail.html?id=' + id
+      window.location.href = urlRedirect;
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', fetchDataAndDisplay);
+    const tokenValue = sessionStorage.getItem('authData');
+    const url = 'http://localhost/cacos-backend/'
+
+    if (!tokenValue) {
+      alert("Silahkan login terlebih dahulu")
+      window.location.href = 'login.html';
+    }
+
+    async function fetchDataAndDisplay() {
+      try {
+          const response = await fetch(`${url}destinasi.php`);
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+
+          const data = await response.json();
+          const datas = data.data.slice(0, 3)
+          displayData(datas);
+      } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+      }
+      ScrollReveal().reveal(".discover__card__content", {
+        ...scrollRevealOption,
+        interval: 500,
+        delay: 200,
+      });
+    }
+
+    function displayData(data) {
+    const grid = document.getElementById('idGrid');
+
+    // Clear existing cards
+    grid.innerHTML = '';
+
+    // Loop through the data and create a card for each item
+    data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'discover__card';
+        card.innerHTML = `
+            <div class="discover__image">
+                <img src="${url+"images/"+item.image}" alt="${item.nama}" />
+            </div>
+            <div class="discover__card__content">
+                <h4>${item.nama}</h4>
+                <p>${item.deskripsi}</p>
+                <button class="discover__btn" onclick="redirectTo('${item.id_destinasi}')">
+                    Discover More <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+
+  </script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>

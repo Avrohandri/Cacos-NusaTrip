@@ -1,0 +1,44 @@
+/* Add this style to your existing stylesheet or create a new one */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Add your other styles as needed */
+  .section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section__header {
+    color: #333;
+  }
+  
+  .section__subheader {
+    color: #666;
+  }
+  
+  .discover__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .discover__card {
+    margin: 20px;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .discover__card__content {
+    padding: 10px;
+  }
+  
+  .discover__image img {
+    max-width: 100%;
+    height: auto;
+    
+  }
+  

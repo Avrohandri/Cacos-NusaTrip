@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "cbe847b9-cdee-4a62-b49f-ebafdf164b64",
+		"name": "travel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21145982"
+	},
+	"item": [
+		{
+			"name": "Pemesanan",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/cacos-backend/pemesanan.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"pemesanan.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postPemesanan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "tan",
+									"type": "text"
+								},
+								{
+									"key": "no_telepon",
+									"value": "08123213123",
+									"type": "text"
+								},
+								{
+									"key": "destinasi",
+									"value": "semarang",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_pemesanan",
+									"value": "2023-12-12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/pemesanan.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"pemesanan.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/pemesanan.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"pemesanan.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\": \"tann\",\r\n    \"no_telepon\": \"0123123\",\r\n    \"destinasi\":\"pwt\",\r\n    \"tanggal_pemesanan\": \"2023-12-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/pemesanan.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"pemesanan.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user45",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user45",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/register.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"register.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Destinasi",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/cacos-backend/destinasi.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"destinasi.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDestinasi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Denpasar",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Explore the rich history and culture of Denpasar.",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Denpasar, di mana pesona pulau Bali menggoda setiap indera, dan keindahan alamnya menari bersama budaya yang kaya.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/KERJO KERJOO/Joki Udinus/EXPO CACOS/assets/discover-3.jpg"
+								},
+								{
+									"key": "background_image",
+									"type": "file",
+									"src": "/C:/Users/ASUS/Downloads/mahmud-ahsan-QqPcxfFKqfU-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/destinasi.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"destinasi.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/destinasi.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"destinasi.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Yogyakarta",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Explore the rich history and culture of Yogyakarta.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/KERJO KERJOO/Joki Udinus/EXPO CACOS/assets/discover-1.jpg"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Jogja, tempat di mana sejarah berkisah dalam warna-warna tradisi, dan memelukmu dengan kehangatan kebudayaan yang tak terlupakan.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/destinasi.php?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"destinasi.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/cacos-backend/destinasi.php?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"destinasi.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discover",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/cacos-backend/discover.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"discover.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDiscover",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Malioboro",
+									"type": "text"
+								},
+								{
+									"key": "id_destinasi",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Jelas saja tempat wisata di Jogja yang satu ini wajib ada di nomor 1. Kamu betul-betul belum ke Jogja namanya kalau enggak mampir atau paling enggak lewat Jalan Malioboro!Selain untuk beli oleh-oleh, kamu juga bisa makan-makan di area Malioboro. Apalagi kalau malam, banyak banget warung tenda berdiri di sini.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/ASUS/Downloads/farhan-abas-YG9KXCaLGWU-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/discover.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"discover.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/discover.php?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"discover.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Yogyakarta",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Explore the rich history and culture of Yogyakarta.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/KERJO KERJOO/Joki Udinus/EXPO CACOS/assets/discover-1.jpg"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Jogja, tempat di mana sejarah berkisah dalam warna-warna tradisi, dan memelukmu dengan kehangatan kebudayaan yang tak terlupakan.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/cacos-backend/discover.php?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"discover.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdDestinasi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/cacos-backend/discover.php?id_destinasi=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"cacos-backend",
+								"discover.php"
+							],
+							"query": [
+								{
+									"key": "id_destinasi",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
