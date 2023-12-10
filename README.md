@@ -1,4 +1,5 @@
 # Cacos NusaTrip
+Untuk Video tutorial : https://youtu.be/E64E2Qe6bLo
 1. Letakkan cacos-backend ke htdocs pada XAMPP (hanya backendnya)
 2. FrontEnd berada pada folder EXPO CACOS
 3. Buat data baru terlebih dahulu bernama "travel" di phpmyadmin. lalu import travel.sql ke data travel tadi
