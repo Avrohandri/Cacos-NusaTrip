@@ -8,4 +8,4 @@ Untuk Video tutorial : https://youtu.be/E64E2Qe6bLo
 6. Untuk mencoba APi silahkan menggunakan postman, import collection
 7. Jika menggunakan Xampp pastikan url http://localhost/cacos-backend/ (untuk pengecekan backend saja)
 8. Untuk Akun : 1) faisol, pass : 123. 2) user, pass : user45
-9. Pengguna juga dapat registrasi apabila ingin membuat akun baru
+9. Pengguna juga dapat registrasi apabila ingin membuat akun baru.
